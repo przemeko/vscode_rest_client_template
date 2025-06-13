@@ -1,0 +1,17 @@
+###
+# Get a key from environment variable and store response in oauth2_output
+#
+# @name oauth2_output
+GET {{service_url}}/oauth2/token?key_id={{$processEnv %service_key_id}}
+
+### 
+# Read access_token from a previous request
+#
+@access_token = {{oauth2_output.response.body.access_token}}
+POST {{service_url}}/data
+content-type: application/json
+Authorization: Bearer {{access_token}}
+
+{
+    "data": "test"
+}
