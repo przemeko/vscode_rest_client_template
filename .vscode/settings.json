@@ -1,0 +1,11 @@
+{
+  "rest-client.environmentVariables": {
+    "$shared": {},
+    "local": {},
+    "dev": {},
+    "prod": {
+      "service_url": "https://test.endpoint",
+      "service_key_id": "SERVICE_KEY_ID"
+    }
+  }
+}
